@@ -1,0 +1,11 @@
+{
+  "title": "Berlindisch",
+  "description": "Food & Logistics Venture Studio — rooted in Berlin, shaped by diaspora culture.",
+  "url": "https://berlindisch.co",
+  "nav": [
+    { "label": "Home", "url": "/" },
+    { "label": "Venture Studio", "url": "/venture-studio/" },
+    { "label": "Culture", "url": "/culture/" },
+    { "label": "Imprint & Privacy", "url": "/imprint/" }
+  ]
+}

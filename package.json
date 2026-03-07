@@ -1,0 +1,13 @@
+{
+  "name": "berlindisch-site",
+  "version": "1.0.0",
+  "description": "Website for the Berlindisch Collective",
+  "scripts": {
+    "build": "npx @11ty/eleventy",
+    "serve": "npx @11ty/eleventy --serve",
+    "clean": "rm -rf _site"
+  },
+  "devDependencies": {
+    "@11ty/eleventy": "^2.0.1"
+  }
+}
