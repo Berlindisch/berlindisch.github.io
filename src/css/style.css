@@ -206,6 +206,65 @@ main {
   font-size: 0.95rem;
 }
 
+/* ── Manifesto ────────────────────────────────────── */
+.manifesto {
+  padding: calc(var(--space) * 2) 0;
+}
+
+.manifesto h2 {
+  font-size: 1.5rem;
+  margin-top: calc(var(--space) * 2);
+  margin-bottom: var(--space);
+  color: var(--color-purple);
+}
+
+.manifesto h3 {
+  font-size: 1.15rem;
+  margin-top: calc(var(--space) * 1.5);
+  margin-bottom: calc(var(--space) * 0.5);
+  color: var(--color-yellow);
+}
+
+.manifesto p {
+  color: var(--color-muted);
+  max-width: 640px;
+  margin-bottom: calc(var(--space) * 0.5);
+}
+
+.manifesto ul {
+  list-style: none;
+  padding: 0;
+  margin-bottom: calc(var(--space) * 0.5);
+}
+
+.manifesto li {
+  color: var(--color-muted);
+  padding: 0.2rem 0;
+}
+
+.manifesto li::before {
+  content: "→ ";
+  color: var(--color-pink);
+}
+
+.manifesto hr {
+  border: none;
+  border-top: 1px solid var(--color-surface);
+  margin: calc(var(--space) * 2) 0;
+}
+
+.manifesto-epigraph {
+  border-left: 3px solid var(--color-purple);
+  padding-left: var(--space);
+  margin-bottom: calc(var(--space) * 1.5);
+}
+
+.manifesto-epigraph p {
+  color: var(--color-text);
+  font-size: 1.05rem;
+  opacity: 0.85;
+}
+
 /* ── Utilities ────────────────────────────────────── */
 .mt { margin-top: var(--space); }
 .mt-2 { margin-top: calc(var(--space) * 2); }

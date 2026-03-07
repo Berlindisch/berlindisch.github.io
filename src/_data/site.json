@@ -4,6 +4,7 @@
   "url": "https://berlindisch.co",
   "nav": [
     { "label": "Home", "url": "/" },
+    { "label": "Manifesto", "url": "/manifesto/" },
     { "label": "Venture Studio", "url": "/venture-studio/" },
     { "label": "Culture", "url": "/culture/" },
     { "label": "Imprint & Privacy", "url": "/imprint/" }
