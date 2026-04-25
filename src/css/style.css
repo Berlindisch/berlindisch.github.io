@@ -1,3 +1,49 @@
+/*
+────────────────────────────────────────────────────────
+BERLINDISCH BRAND NOTE — RETROWAVE ENHANCEMENT
+
+Current styling correctly establishes base colors and dark theme,
+but does not yet fully express the Berlindisch retrowave identity.
+
+Suggested improvements (do not implement blindly — design pass needed):
+
+1. Neon / Glow Effects
+- Add subtle text-shadow or box-shadow using:
+  var(--color-purple), var(--color-pink)
+- Use glow sparingly on headings, CTA, and key accents
+
+2. Gradient Treatments
+- Introduce gradient text for hero headlines:
+  linear-gradient(90deg, var(--color-purple), var(--color-pink))
+- Consider gradient borders for cards (especially highlight + packages)
+
+3. Typography Upgrade
+- Current system font is too neutral
+- Introduce:
+  - display serif OR retro-futuristic headline font
+  - tighter tracking + stronger hierarchy for titles
+
+4. Card Depth
+- Current cards are flat
+- Add:
+  - subtle neon borders OR gradient outlines
+  - layered surfaces (slight elevation feel)
+
+5. Signature Motif Layer
+- Explore visual identity elements:
+  - TV tower motif
+  - geometric/hex shapes
+  - dot/marker for "I"
+
+6. Zine / Editorial Feel
+- Increase contrast between sections
+- Add spacing rhythm + occasional asymmetry
+
+Goal:
+Move from "dark UI with accents" → "distinct Berlindisch retrowave editorial system"
+────────────────────────────────────────────────────────
+*/
+
 /* ── Design Tokens ───────────────────────────────── */
 :root {
   --color-bg: #121212;
