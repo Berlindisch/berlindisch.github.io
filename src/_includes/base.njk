@@ -13,13 +13,19 @@
 
   <header class="site-header">
     <a href="/" class="logo">
-      <img src="/images/berlindisch-banner.png" alt="{{ site.title }}" class="logo-img" />
+      <div class="logo-wrap">
+        <img src="/images/berlindisch-banner.png" alt="{{ site.title }}" class="logo-img" />
+      </div>
     </a>
-    <nav>
-      {%- for item in site.nav %}
-      <a href="{{ item.url }}"{% if page.url == item.url %} aria-current="page"{% endif %}>{{ item.label }}</a>
-      {%- endfor %}
-    </nav>
+    <div class="nav-bar">
+      <span class="nav-stroke top"></span>
+      <nav class="nav-links">
+        {%- for item in site.nav %}
+        <a href="{{ item.url }}"{% if page.url == item.url %} aria-current="page"{% endif %}>{{ item.label }}</a>
+        {%- endfor %}
+      </nav>
+      <span class="nav-stroke bottom"></span>
+    </div>
   </header>
 
   <main>
