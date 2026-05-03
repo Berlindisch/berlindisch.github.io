@@ -91,10 +91,13 @@ main {
 }
 
 .site-header .logo {
-  font-size: 1.25rem;
-  font-weight: 700;
-  color: var(--color-text);
-  letter-spacing: 0.04em;
+  display: flex;
+  align-items: center;
+}
+
+.site-header .logo-img {
+  height: 40px;
+  width: auto;
 }
 
 .site-header nav {
