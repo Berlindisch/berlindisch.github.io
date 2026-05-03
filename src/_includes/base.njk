@@ -3,11 +3,46 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>{{ pageTitle }} — {{ site.title }}</title>
-  <meta name="description" content="{{ site.description }}" />
+  <title>{% if page.url == "/" %}{{ site.title }} — {{ site.description }}{% else %}{{ pageTitle }} — {{ site.title }}{% endif %}</title>
+  <meta name="description" content="{{ pageDescription | default(site.description) }}" />
+  <link rel="canonical" href="{{ site.url }}{{ page.url }}" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="{{ site.title }}" />
+  <meta property="og:title" content="{% if page.url == "/" %}{{ site.title }}{% else %}{{ pageTitle }} — {{ site.title }}{% endif %}" />
+  <meta property="og:description" content="{{ pageDescription | default(site.description) }}" />
+  <meta property="og:url" content="{{ site.url }}{{ page.url }}" />
+  <meta property="og:image" content="{{ site.url }}/images/berlindisch-banner.png" />
+  <meta property="og:locale" content="en_US" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="{% if page.url == "/" %}{{ site.title }}{% else %}{{ pageTitle }} — {{ site.title }}{% endif %}" />
+  <meta name="twitter:description" content="{{ pageDescription | default(site.description) }}" />
+  <meta name="twitter:image" content="{{ site.url }}/images/berlindisch-banner.png" />
+
   <link rel="icon" type="image/png" href="/favicon/favicon.png" />
   <link rel="icon" type="image/svg+xml" href="/favicon/favicon.svg" />
   <link rel="stylesheet" href="/css/style.css" />
+
+  {% if page.url == "/" %}
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "{{ site.title }}",
+    "url": "{{ site.url }}",
+    "logo": "{{ site.url }}/images/berlindisch-banner.png",
+    "description": "{{ site.description }}",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Berlin",
+      "addressCountry": "DE"
+    }
+  }
+  </script>
+  {% endif %}
 </head>
 <body>
 
