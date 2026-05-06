@@ -239,6 +239,14 @@ main {
   margin: calc(var(--space) * 1.75) 0;
 }
 
+/* ── Highlight Array ───────────────────────────────── */
+.highlight-array {
+  background: linear-gradient(135deg, var(--color-plum), var(--color-saffron));
+  border-radius: 10px;
+  padding: calc(var(--space) * 1.5);
+  margin: calc(var(--space) * 1.75) 0;
+}
+
 /* ── Package Cards ────────────────────────────────── */
 .package-card {
   background: var(--color-surface);
