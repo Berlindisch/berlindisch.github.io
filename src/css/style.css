@@ -252,10 +252,15 @@ main {
 
 /* ── Highlight Array ───────────────────────────────── */
 .highlight-array {
-  background: linear-gradient(135deg, var(--color-plum), var(--color-saffron));
+  background: linear-gradient(135deg, var(--color-saffron), var(--color-rose));
   border-radius: 10px;
   padding: calc(var(--space) * 1.5);
   margin: calc(var(--space) * 1.75) 0;
+}
+
+.highlight-array > h3,
+.highlight-array > p {
+  color: var(--color-plum);
 }
 
 /* ── Package Cards ────────────────────────────────── */
