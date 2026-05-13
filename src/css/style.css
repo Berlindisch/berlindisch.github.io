@@ -224,6 +224,36 @@ main {
   text-decoration: none;
 }
 
+.footer-socials {
+  display: flex;
+  gap: 0.75rem;
+  margin-bottom: calc(var(--space) * 1);
+}
+
+.social-icon {
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 999px;
+  border: 1.5px solid rgba(255, 46, 136, 0.25);
+  background: rgba(255, 46, 136, 0.08);
+  transition: transform 0.18s ease, background 0.18s ease;
+  text-decoration: none;
+}
+
+.social-icon:hover {
+  transform: translateY(-2px);
+  background: rgba(255, 46, 136, 0.18);
+  text-decoration: none;
+}
+
+.social-icon svg {
+  width: 16px;
+  height: 16px;
+  fill: var(--color-rose);
+}
+
 .footer-bottom {
   display: flex;
   gap: 1.5rem;
