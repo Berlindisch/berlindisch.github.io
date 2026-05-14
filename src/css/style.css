@@ -56,6 +56,7 @@ Move from "dark UI with accents" → "distinct Berlindisch retrowave editorial s
   --font-body: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   --max-width: 960px;
   --space: 1.5rem;
+
 }
 
 /* ── Reset / Base ────────────────────────────────── */
@@ -530,6 +531,284 @@ main {
 /* ── Utilities ────────────────────────────────────── */
 .mt { margin-top: var(--space); }
 .mt-2 { margin-top: calc(var(--space) * 2); }
+
+/* ══════════════════════════════════════════════════════
+   EVENT RADAR — Bulletin Board Component System
+   ══════════════════════════════════════════════════════ */
+
+/* ── Reveal animation ────────────────────────────── */
+.reveal {
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ── Radar wrapper ───────────────────────────────── */
+.event-radar {
+  position: relative;
+  padding: calc(var(--space) * 1.5) 0 calc(var(--space) * 0.5);
+}
+
+.radar-header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: calc(var(--space) * 1.25);
+}
+
+.radar-pulse {
+  position: relative;
+  width: 10px;
+  height: 10px;
+  flex-shrink: 0;
+}
+
+.radar-pulse::before,
+.radar-pulse::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: var(--color-rose);
+}
+
+.radar-pulse::before {
+  animation: pulse-ring 2.4s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+.radar-pulse::after {
+  width: 10px;
+  height: 10px;
+  box-shadow: 0 0 8px rgba(255, 46, 136, 0.6);
+}
+
+@keyframes pulse-ring {
+  0%   { transform: scale(1); opacity: 0.7; }
+  70%  { transform: scale(2.8); opacity: 0; }
+  100% { transform: scale(2.8); opacity: 0; }
+}
+
+.radar-title {
+  font-size: clamp(1.35rem, 3.2vw, 1.8rem);
+  font-weight: 700;
+  color: var(--color-text);
+  letter-spacing: -0.01em;
+  line-height: 1.15;
+}
+
+.radar-title .accent-rose {
+  color: var(--color-rose);
+}
+
+.radar-stroke {
+  display: block;
+  width: 100%;
+  height: 2px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--color-rose), var(--color-plum), transparent);
+  opacity: 0.55;
+  margin-bottom: calc(var(--space) * 1.25);
+}
+
+/* ── Section tag (pill label) ────────────────────── */
+.section-tag {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 18px;
+}
+
+/* ── Event section ───────────────────────────────── */
+.event-section {
+  padding: 0;
+  margin-bottom: calc(var(--space) * 1.5);
+}
+
+.event-inner {
+  position: relative;
+}
+
+/* ── Event card ──────────────────────────────────── */
+.event-card {
+  position: relative;
+  background: linear-gradient(160deg, rgba(147, 35, 115, 0.08) 0%, rgba(36, 16, 29, 0.95) 50%, rgba(255, 46, 136, 0.04) 100%);
+  border: 1px solid rgba(255, 46, 136, 0.12);
+  border-radius: 18px;
+  padding: clamp(24px, 4vw, 40px);
+  overflow: hidden;
+}
+
+/* subtle corner glow */
+.event-card::before {
+  content: "";
+  position: absolute;
+  top: -60px;
+  right: -60px;
+  width: 200px;
+  height: 200px;
+  background: radial-gradient(circle, rgba(255, 46, 136, 0.08) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+/* ── Event grid (two-column) ─────────────────────── */
+.event-grid {
+  display: grid;
+  grid-template-columns: 1fr 280px;
+  gap: clamp(24px, 4vw, 48px);
+  align-items: start;
+}
+
+/* ── Badge ────────────────────────────────────────── */
+.event-badge {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-saffron);
+  background: rgba(254, 176, 3, 0.08);
+  border: 1px solid rgba(254, 176, 3, 0.2);
+  border-radius: 100px;
+  padding: 6px 14px;
+  margin-bottom: 20px;
+}
+
+/* ── Title & subtitle ────────────────────────────── */
+.event-title {
+  font-size: clamp(1.6rem, 4vw, 2.3rem);
+  font-weight: 800;
+  line-height: 1.12;
+  letter-spacing: -0.02em;
+  color: var(--color-text);
+  margin-bottom: 16px;
+}
+
+.event-sub {
+  font-size: 0.95rem;
+  line-height: 1.65;
+  color: rgba(255, 255, 255, 0.55);
+  max-width: 540px;
+  margin-bottom: 24px;
+}
+
+/* ── Meta items ──────────────────────────────────── */
+.event-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 28px;
+}
+
+.event-meta-item {
+  font-size: 13.5px;
+  color: rgba(255, 255, 255, 0.5);
+  line-height: 1.5;
+}
+
+.event-meta-item strong {
+  color: rgba(255, 255, 255, 0.78);
+}
+
+/* ── Powered-by line ─────────────────────────────── */
+.event-powered {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 4px;
+  font-size: 12px;
+  padding-top: 4px;
+}
+
+.event-powered-label {
+  color: rgba(255, 255, 255, 0.3);
+  letter-spacing: 0.03em;
+}
+
+.event-powered-brand {
+  font-weight: 700;
+  color: var(--color-saffron);
+  letter-spacing: 0.02em;
+}
+
+/* ── Visual side panel ───────────────────────────── */
+.event-visual {
+  text-align: center;
+  padding: clamp(24px, 3vw, 36px) 20px;
+  background: rgba(147, 35, 115, 0.06);
+  border: 1px solid rgba(255, 46, 136, 0.1);
+  border-radius: 14px;
+  position: relative;
+}
+
+.event-visual::after {
+  content: "";
+  position: absolute;
+  bottom: -1px;
+  left: 20%;
+  right: 20%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--color-rose), transparent);
+  opacity: 0.25;
+}
+
+.event-date-num {
+  font-size: clamp(3.5rem, 8vw, 5.5rem);
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: -0.04em;
+  background: linear-gradient(180deg, var(--color-rose), var(--color-plum));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.event-date-month {
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.45);
+  margin-top: 4px;
+}
+
+.event-time {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.3);
+  margin-top: 10px;
+  letter-spacing: 0.02em;
+}
+
+/* ── Responsive: event grid ──────────────────────── */
+@media (max-width: 760px) {
+  .event-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .event-visual {
+    order: -1;
+    padding: 20px;
+  }
+
+  .event-date-num {
+    font-size: 3.2rem;
+  }
+
+  .event-card {
+    padding: 20px;
+  }
+
+  .radar-header {
+    flex-wrap: wrap;
+  }
+}
 
 /* ── Proper Nav Bar Treatment ─────────────────────── */
 .site-header {
