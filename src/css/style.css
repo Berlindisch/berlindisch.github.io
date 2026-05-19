@@ -453,7 +453,7 @@ main {
 
 .highlight-array > h3,
 .highlight-array > p {
-  color: var(--color-plum);
+  color: var(--color-bg);
 }
 
 /* ── Package Cards ────────────────────────────────── */
