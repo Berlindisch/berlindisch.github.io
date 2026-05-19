@@ -59,6 +59,32 @@ Move from "dark UI with accents" → "distinct Berlindisch retrowave editorial s
 
 }
 
+/* ── Skip Link ────────────────────────────────────── */
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  z-index: 1000;
+  padding: 0.75rem 1.5rem;
+  background: var(--color-saffron);
+  color: var(--color-bg);
+  font-weight: 700;
+  text-decoration: none;
+  border-radius: 0 0 6px 0;
+}
+
+.skip-link:focus {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: auto;
+  height: auto;
+  overflow: visible;
+}
+
 /* ── Reset / Base ────────────────────────────────── */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -71,6 +97,17 @@ body {
 
 a { color: var(--color-saffron); text-decoration: none; }
 a:hover { text-decoration: underline; }
+
+/* Inline text links get underlines for WCAG 1.4.1 */
+main a:not(.cta):not(.card a) {
+  text-decoration: underline;
+  text-decoration-color: rgba(254, 176, 3, 0.4);
+  text-underline-offset: 0.15em;
+}
+
+main a:not(.cta):not(.card a):hover {
+  text-decoration-color: var(--color-saffron);
+}
 
 
 img, svg { max-width: 100%; height: auto; }
@@ -357,6 +394,7 @@ main {
 
 .card {
   background: var(--color-surface);
+  border: 1px solid rgba(255, 46, 136, 0.12);
   border-radius: 8px;
   padding: var(--space);
 }
@@ -526,6 +564,17 @@ main {
   color: var(--color-text);
   font-size: 1.05rem;
   opacity: 0.85;
+}
+
+/* ── Focus Styles ─────────────────────────────────── */
+:focus-visible {
+  outline: 2px solid var(--color-saffron);
+  outline-offset: 3px;
+  border-radius: 3px;
+}
+
+.cta:focus-visible {
+  outline-offset: 4px;
 }
 
 /* ── Utilities ────────────────────────────────────── */
