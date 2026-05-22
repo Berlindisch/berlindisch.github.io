@@ -410,6 +410,35 @@ main {
   color: var(--color-muted);
 }
 
+.featured-partner-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.featured-partner-logo {
+  width: auto;
+  max-width: min(190px, 100%);
+  max-height: 92px;
+  height: auto;
+  object-fit: contain;
+  opacity: 0.9;
+  filter: drop-shadow(0 6px 20px rgba(147, 35, 115, 0.35));
+}
+
+.partner-link {
+  margin-top: auto;
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: var(--color-saffron);
+  text-decoration: none;
+}
+
+.partner-link:hover {
+  text-decoration: underline;
+  text-decoration-color: rgba(254, 176, 3, 0.75);
+}
+
 /* ── CTA Button ───────────────────────────────────── */
 .cta {
   display: inline-block;
@@ -964,4 +993,154 @@ main {
 
 .section p + p {
   margin-top: calc(var(--space) * 0.35);
+}
+
+/* ── Community Partner Logo Wall ─────────────────── */
+.community-logo-wall {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  padding-top: calc(var(--space) * 1.2);
+  padding-bottom: calc(var(--space) * 1.2);
+}
+
+.community-logo-wall::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 12% 50%, rgba(254, 176, 3, 0.08) 0%, transparent 42%),
+    radial-gradient(circle at 88% 50%, rgba(255, 46, 136, 0.16) 0%, transparent 46%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.logo-wall {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: clamp(0.9rem, 2vw, 1.3rem);
+  min-height: clamp(220px, 30vw, 320px);
+  border-radius: 24px;
+  padding: clamp(1.2rem, 3vw, 2.2rem);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background:
+    linear-gradient(155deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.02) 55%, rgba(147, 35, 115, 0.16)),
+    radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.07), rgba(0, 0, 0, 0.08));
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.2),
+    inset 0 -24px 36px rgba(0, 0, 0, 0.3),
+    0 18px 48px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+}
+
+.logo-wall::before,
+.logo-wall::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: min(280px, 42%);
+  height: min(180px, 44%);
+  border-radius: 999px;
+  opacity: 0.32;
+  filter: blur(34px);
+  pointer-events: none;
+}
+
+.logo-wall::before {
+  left: -70px;
+  background: radial-gradient(circle, rgba(255, 46, 136, 0.26) 0%, rgba(255, 46, 136, 0) 72%);
+  transform: translateY(-50%);
+}
+
+.logo-wall::after {
+  right: -70px;
+  background: radial-gradient(circle, rgba(254, 176, 3, 0.24) 0%, rgba(254, 176, 3, 0) 72%);
+  transform: translateY(-50%);
+}
+
+.logo-wall-item {
+  position: relative;
+  z-index: 2;
+  width: min(360px, 100%);
+  height: clamp(120px, 20vw, 170px);
+  display: grid;
+  place-items: center;
+  padding: clamp(1rem, 2.4vw, 1.4rem);
+  border-radius: 18px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: linear-gradient(160deg, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.03));
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.28),
+    0 12px 28px rgba(0, 0, 0, 0.3);
+  text-decoration: none;
+  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.logo-wall-item:hover {
+  transform: translateY(-3px) scale(1.01);
+  border-color: rgba(254, 176, 3, 0.42);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.34),
+    0 18px 36px rgba(0, 0, 0, 0.36),
+    0 0 22px rgba(255, 46, 136, 0.18);
+  text-decoration: none;
+}
+
+.logo-wall-image {
+  width: clamp(150px, 24vw, 220px);
+  height: 92px;
+  object-fit: contain;
+  opacity: 0.96;
+  filter:
+    drop-shadow(0 2px 0 rgba(255, 255, 255, 0.2))
+    drop-shadow(0 12px 20px rgba(147, 35, 115, 0.32));
+  transition: transform 0.28s ease, filter 0.28s ease;
+}
+
+.logo-wall-item:hover .logo-wall-image {
+  transform: translateY(-1px);
+  filter:
+    drop-shadow(0 3px 0 rgba(255, 255, 255, 0.32))
+    drop-shadow(0 16px 24px rgba(255, 46, 136, 0.32));
+}
+
+@media (max-width: 760px) {
+  .community-logo-wall {
+    padding-top: var(--space);
+    padding-bottom: var(--space);
+  }
+
+  .logo-wall {
+    min-height: 200px;
+    border-radius: 18px;
+  }
+
+  .logo-wall::before,
+  .logo-wall::after {
+    width: 170px;
+    height: 140px;
+    opacity: 0.24;
+  }
+
+  .logo-wall::before {
+    left: -68px;
+  }
+
+  .logo-wall::after {
+    right: -68px;
+  }
+
+  .logo-wall-item {
+    height: 110px;
+    border-radius: 14px;
+  }
+
+  .logo-wall-image {
+    width: 170px;
+    height: 72px;
+  }
 }
