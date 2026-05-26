@@ -46,8 +46,8 @@ Move from "dark UI with accents" → "distinct Berlindisch retrowave editorial s
 
 /* ── Design Tokens ───────────────────────────────── */
 :root {
-  --color-bg: #150811;
-  --color-surface: #24101d;
+  --color-bg: #160a1c;
+  --color-surface: #271230;
   --color-plum: #932373;
   --color-rose: #ff2e88;
   --color-saffron: #feb003;
